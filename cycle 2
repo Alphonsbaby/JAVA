@@ -1,0 +1,357 @@
+Sort.java
+import java.util.Scanner;
+public class Sort
+{
+    public static void main(String[] args) 
+    {
+        int count;
+        String temp;
+        Scanner scan = new Scanner(System.in);
+        
+     
+        System.out.print("Enter number of strings you would like to enter:");
+        count = scan.nextInt();
+        
+        
+        String str[] = new String[count];
+        Scanner scan2 = new Scanner(System.in);
+        
+        System.out.println("Enter the Strings one by one:");
+        for(int i = 0; i < count; i++)
+        {
+            str[i] = scan2.nextLine();
+        }
+        scan.close();
+        scan2.close();
+  
+        for (int i = 0; i < count; i++) 
+        {
+            for (int j = i + 1; j < count; j++) { 
+                if (str[i].compareTo(str[j])>0) 
+                {
+                    temp = str[i];
+                    str[i] = str[j];
+                    str[j] = temp;
+                }
+            }
+        }
+
+        System.out.print("Strings in Sorted Order:");
+        for (int i = 0; i <= count - 1; i++) 
+        {
+            System.out.print(str[i] + ", ");
+        }
+    }
+}
+
+
+
+Search_Element.java
+
+import java.util.Scanner;
+public class Search_Element
+{
+    public static void main(String[] args) 
+    {
+        int n, x, flag = 0, i = 0;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = s.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(i = 0; i < n; i++)
+        {
+            a[i] = s.nextInt();
+        }
+        System.out.print("Enter the element you want to find:");
+        x = s.nextInt();
+        for(i = 0; i < n; i++)
+        {
+            if(a[i] == x)
+            {
+                flag = 1;
+                break;
+            }
+            else
+            {
+                flag = 0;
+            }
+        }
+        if(flag == 1)
+        {
+            System.out.println("Element found at position:"+(i + 1));
+        }
+        else
+        {
+            System.out.println("Element not found");
+        }
+    }
+}
+
+
+StringExample.java
+public class StringExample{  
+public static void main(String args[]){  
+String s1="java";
+char ch[]={'s','t','r','i','n','g','s'};  
+String s2=new String(ch);
+String s3=new String("example");
+System.out.println(s2);  
+System.out.println(s3);  
+int length =s2.length();
+System.out.println("The length of the String \""+s2+"\" is: " +length);
+s2=s2.concat(" is immutable so assign it explicitly");  
+System.out.println(s2);
+char s=s1.charAt(2);
+System.out.println(s);
+System.out.println(s1.compareTo(s2));
+int firstIndex = s2.indexOf('s');
+    System.out.println("First occurrence of char 's'" +
+                       " is found at : " + firstIndex);
+int lastIndex = s2.lastIndexOf('s');
+    System.out.println("Last occurrence of char 's' is" +
+                       " found at : " + lastIndex);
+String s4="javatpoint is a very good website";  
+String replaceString=s4.replace('a','e');//replaces all occurrences of 'a' to 'e'  
+System.out.println(replaceString); 
+String  sample = String.valueOf(ch, 0, 3);
+ 
+        System.out.println(sample);
+}}  
+
+
+employee.java
+
+import java.util.Scanner;
+public class employee
+{
+    public static void main(String[] args) 
+    {
+        int count,esalarytemp,flag = 0;
+
+        Scanner scan = new Scanner(System.in);
+     
+        System.out.print("how many  employees information you want enter :");
+        count = scan.nextInt();
+        String eName[] = new String[count];
+        int salary[] = new int[count];
+        int  no[] = new int[count];
+        Scanner scan2 = new Scanner(System.in);
+        Scanner scan3 = new Scanner(System.in);
+        Scanner scan4 = new Scanner(System.in);
+             for(int i = 0; i < count; i++)
+        {
+   System.out.println("Enter the eno :");
+
+            no[i] = scan2.nextInt();
+System.out.println("Enter the name :");
+        
+            eName[i] = scan2.nextLine();
+        System.out.println("Enter the salary :");
+        
+            salary[i] = scan2.nextInt();
+        }
+      
+          Scanner s = new Scanner(System.in);
+        System.out.print("Enter the employee number you want to find:");
+        int x = s.nextInt();
+        for(int i = 0; i < count; i++)
+        {
+            if(no[i] == x)
+            {
+                flag = 1;
+                break;
+            }
+            else
+            {
+                flag = 0;
+            }
+        }
+        if(flag == 1)
+        {
+            System.out.println("Employee id "+x+" found:");
+        }
+        else
+        {
+            System.out.println("Employee id not found");
+        }
+
+  scan.close();
+        scan2.close();
+scan3.close();
+scan4.close();
+s.close();
+        
+    }
+}
+
+Customer_Bank.java
+import java.util.*;
+class Bank{
+int accno;
+String 	name,type;
+float amount;
+void details(int n,String nm,String t,float a)
+{
+accno=n;
+name=nm;
+type=t;
+amount=a;
+}
+	
+void show()
+{
+System.out.println("Account number of the customer:"+accno);
+System.out.println("Customer Name:"+name);
+System.out.println("Account Type:"+type);
+System.out.println("Balance Amount:" +amount);
+}
+void deposit(float a)
+{
+amount=amount+a;
+System.out.println("deposit amount:"+amount);
+}
+void withdraw(float a)
+{
+if(amount<a)
+System.out.println("insufficentt balance");
+else
+amount=amount-a;
+System.out.println("withdraw amount is:"+a);
+
+}
+void checkbalance()
+{
+System.out.println("balance is:"+amount);
+}
+}
+class Customer_Bank{
+public static void main(String args[])
+{
+Bank b =new Bank();
+b.details(123456,"anu","savings",2000);
+b.show();
+b.deposit(40000);
+b.checkbalance();
+b.withdraw(10000);
+b.checkbalance();
+}
+}
+
+studentdetails.java
+import java.util.Scanner;
+
+
+
+public class Student_Details
+
+{
+    
+public static void main(String args[])
+ 
+ {
+  
+        
+      
+ int i,j,n;
+  
+ int total=0;      
+     
+ Scanner s1 = new Scanner(System.in);
+	
+ Scanner s2 = new Scanner(System.in);
+ Scanner s3 = new Scanner(System.in);
+ Scanner s4 = new Scanner(System.in);
+ Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of student details:");
+        n = s.nextInt();
+        int stuid[] = new int[n];
+String name[] = new String[n];
+String branch[] = new String[n];
+ int year[] = new int[n];
+ int avg[] = new int[n];
+ for(i = 0; i < n; i++)
+        {
+System.out.println("Enter the id of the student:");
+	
+        stuid[i]=s1.nextInt();
+  
+      System.out.println("Enter the name of the student:");
+    
+    name[i] = s2.nextLine();
+      
+  System.out.println("Enter the branch of the student:");
+  
+        branch[i]=s3.nextLine();
+
+        System.out.println("Enter the year of study:");
+     
+    year[i]=s4.nextInt();
+       
+ 
+
+       int marks[] = new int[6];
+
+   
+     for(j=0; j<6; j++)
+ { 
+          
+ System.out.print("Enter Marks of Subject"+(j+1)+":");
+   
+        marks[j] = s1.nextInt();
+   
+        total = total + marks[j];
+   
+     }
+  
+
+       avg[i] = total/6;
+ 
+       System.out.print("The student Grade is: ");
+ 
+       if(avg[i]>=80)
+     
+   {
+        
+    System.out.print("A");
+ 
+       }
+    
+    else if(avg[i]>=60 && avg[i]<80)
+  
+      {
+         
+  System.out.print("B");
+ 
+       } 
+     
+   else if(avg[i]>=40 && avg[i]<60)
+   
+     {
+         
+   System.out.print("C");
+  
+      }
+     
+   else
+    
+    {
+          
+  System.out.print("D");
+   
+     }
+  
+}
+
+s.close();
+    
+  s1.close();
+ 
+ s2.close();
+
+ s3.close();
+
+ s4.close();
+
+ }
+}
