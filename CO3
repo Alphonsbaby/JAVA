@@ -1,0 +1,198 @@
+import java.util.Scanner;
+public class OverloadShapeArea
+{
+    void calculateArea(float x)
+    {
+        System.out.println("Area of the square :"+x*x+"sq_units");
+    }
+    void calculateArea(float x,float y)
+    {
+        System.out.println("Area of the rectangle :"+x*y+"sq_units");
+    }
+    void calculateArea(double r)
+    {
+        double area = 3.14*r*r;
+        System.out.println("Area of the circle :"+area+"sq_units");
+    }
+    public static void main(String args[])
+    {
+        OverloadShapeArea obj = new OverloadShapeArea();
+        System.out.println("Enter the sides of a square :");
+        Scanner sc = new Scanner(System.in);
+        float side = sc.nextFloat();
+        obj.calculateArea(side);
+        System.out.println("Enter the sides of the rectangle :");
+        float side1 = sc.nextFloat();
+        float side2 = sc.nextFloat();
+        obj.calculateArea(side1,side2);
+        System.out.println("enter the radius of the circle : ");
+        double rad = sc.nextDouble();
+        obj.calculateArea(rad);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+CO3-2
+import java.util.Scanner;
+class EmployeeT
+{
+    int empid;
+    String name;
+    float salary;
+    String address;
+    EmployeeT(){}
+    EmployeeT(int empid , String name , float salary , String address)
+    {
+        this.empid = empid;
+        this.name = name;
+        this.salary = salary;
+        this.address = address;
+    }
+}
+class Teacher extends EmployeeT
+{
+    String department,subject;
+    Teacher(int empid , String name , float salary , String address , String department , String subject)
+    {
+        super(empid , name , salary , address);
+        this.department = department;
+        this.subject = subject;
+    }
+    public void display()
+    {
+        System.out.println("Teacher_id : "+empid);
+        System.out.println("Teacher_name : "+name);
+        System.out.println("Teacher_salary : "+salary);
+        System.out.println("Teacher_address : "+address);
+        System.out.println("Teacher_department : "+department);
+        System.out.println("Teacher_subject : "+subject);
+    }
+}
+public class TeacherArrObjects
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Enter no.of Teachers : ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Enter Teacher details : ");
+        Teacher teacher[] = new Teacher[n];
+        Scanner scT = new Scanner(System.in);
+        int tid;
+        String name;
+        float salary;
+        String address;
+        String department;
+        String subject;
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter " + (i+1) + " teacher details : ");
+            System.out.println("Enter Teacher_id(integer): ");
+            tid = scT.nextInt();
+            System.out.println("Enter Teacher_name(String): ");
+            name = scT.next();
+            System.out.println("Enter Teacher_salary(float): ");
+            salary = scT.nextFloat();
+            System.out.println("Enter Teacher_address(String): ");
+            address = scT.next();
+            System.out.println("Enter Teacher_department(String): ");
+            department = scT.next();
+            System.out.println("Enter Teacher_subject(String): ");
+            subject = scT.next();
+            Teacher t = new Teacher(tid , name , salary , address , department , subject);
+            teacher[i] = t;
+        }
+        System.out.println("Teachers are : \n ");
+        for(Teacher x : teacher)
+        {
+            x.display();
+            System.out.println("\n");          
+        }
+    }
+}
+
+
+
+
+CO3-3
+
+----
+
+CO3-4
+/*
+Write a program has class Publisher, Book, Literature and Fiction. Read the information
+and print the details of books from either the category, using inheritance
+ */
+import java . util . Scanner ;
+class Publisher
+{
+    String publisher;
+    Publisher(String pubi)
+    {
+        this.publisher=pubi;
+        
+    }
+    
+}
+class book
+{
+    String name;
+    Publisher publisher;
+    book()
+    {
+    }
+    public book(String name,Publisher publisher)
+    {
+        this.name=name;
+        this.publisher=publisher;
+        
+    }
+}
+class liter extends book
+{
+    String lit_type="literature";
+    liter(String name,Publisher publisher)
+    {
+        super(name,publisher);
+    }
+    void display()
+    {
+        System.out.println("name;"+super.name);
+        System.out.println("type;"+this.lit_type);
+        System.out.println("publisher;"+this.publisher.publisher);
+    }
+}
+class fiction extends book
+{
+  String lit_type="Fiction";
+    fiction(String name,Publisher publisher) 
+    {
+         super(name,publisher);
+    }
+     void display()
+    {
+        System.out.println("name;"+super.name);
+        System.out.println("type;"+this.lit_type);
+        System.out.println("publisher;"+this.publisher.publisher);
+    }
+}
+public class InheritanceBookExample 
+{
+    public static void main(String[] args)
+    {
+        Publisher lp=new Publisher("s chand");
+        liter l=new liter("as you like",lp);
+        l.display();
+        Publisher fp=new Publisher("tata");
+        fiction f=new fiction ("tempest",fp);
+        f.display();
+    }
+}
